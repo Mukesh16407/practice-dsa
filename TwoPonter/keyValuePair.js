@@ -3,14 +3,27 @@ function runProgram(input) {
     input = input.trim().split("\n");
     let target = Number(input[0]);
     let arr = input[1].trim().split(" ").map(Number);
-    returnSumIndex(target, arr);
+    let find = returnSumIndex(target, arr);
+    console.log(find)
   }
-  function returnSumIndex(target, arr) {
+  function returnSumIndex(sum, arr) {
+     
+    let hashMap = {},
+      results = []
+
+        for (let i = 0; i < arr.length; i++){
+            if (hashMap[arr[i]]){
+                results.push([hashMap[arr[i]], arr[i]])
+            }else{
+                hashMap[sum - arr[i]] = arr[i];
+            }
+          }
+          return results;
     
   }
   if (process.env.USERNAME === "User") {
-    runProgram(`10
-    8 7 5 6 3 1`);
+    runProgram(`50
+    [10 20 10 40 50 60 70 30`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");
