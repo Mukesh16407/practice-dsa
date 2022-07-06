@@ -22,8 +22,8 @@ function runProgram(input) {
     
   }
   if (process.env.USERNAME === "User") {
-    runProgram(`50
-    [10 20 10 40 50 60 70 30`);
+    runProgram(`10
+    8, 7, 2, 5, 3, 1`);
   } else {
     process.stdin.resume();
     process.stdin.setEncoding("ascii");

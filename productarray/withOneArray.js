@@ -10,9 +10,20 @@ function runProgram(input) {
    }
   }
   function productWithoutSelf(n, arr) {
-    let product = new Array(n).fill(0)
-    
-     console.log(product)
+   let temp =1;
+   let product = new Array(n)
+   for(let i =0; i <n; i++){
+    product[i] = temp;
+    temp = temp*arr[i]
+   }
+   temp =1
+   for(let j =n -1; j >=0; j--){
+    product[j] =product[j]* temp;
+    temp = temp*arr[j]
+   }
+   console.log(product)
+  
+  
   }
   if (process.env.USERNAME === "User") {
     runProgram(`2
