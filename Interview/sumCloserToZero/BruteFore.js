@@ -1,20 +1,28 @@
 function minAbsSumPair(N,arr) {
    
-    
-   for(let i =0; i < N -2; i++){
-    for(let j = i+1; j < N -1; j++){
-        for(let k = j +1;j < N; j++){
-           if(arr[i] + arr[j] + arr[k] === 13){
-              
-            return true;
-           } 
-        }
+    let left,right,min_sum,sum,min_left, min_right;
+
+    if(N <2){
+       console.log("Invalid Input")
+    }
+    min_left =0;
+    min_right=1;
+    min_sum = arr[0] + arr[1];
+
+   for( left =0; left < N -1; left++){
+    for( right = left+1; right< N ; right++){
+       sum = arr[left] + arr[right];
+       if(Math.abs(min_sum) > Math.abs(sum)){
+        min_sum = sum;
+        min_left = left;
+        min_right = right
+       }
     }
 }
-return false
+ console.log(arr[min_left] + "to " + arr[min_right])
     
 }
-console.log(minAbsSumPair(6,[1,2,6,9,-5,-2]));
+minAbsSumPair(6,[1,2,6,9,-5,-2]);
 
 
 
